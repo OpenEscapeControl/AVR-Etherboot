@@ -5,12 +5,12 @@
 #include <avr/eeprom.h>
 #include <avr/boot.h>
 
-#define	MYMAC1 0x02
-#define	MYMAC2 0x01
-#define	MYMAC3 0x02
-#define	MYMAC4 0x03
-#define	MYMAC5 0x04
-#define	MYMAC6 0x21
+#define	MYMAC1 0xAA
+#define	MYMAC2 0x00
+#define	MYMAC3 0x00
+#define	MYMAC4 0x00
+#define	MYMAC5 0x01
+#define	MYMAC6 0x01
 	
 
 // BOOTLOADER_FLAVOR selects the version to build (see docs)
@@ -49,13 +49,13 @@
 //#define ENC28J60_CONTROL_DDR	DDRD
 //#define ENC28J60_CONTROL_PORT	PORTD
 
-#define ENC28J60_PIN_SCK	7
-#define ENC28J60_PIN_MISO	6
-#define ENC28J60_PIN_MOSI	5
+#define ENC28J60_PIN_SCK	1
+#define ENC28J60_PIN_MISO   3
+#define ENC28J60_PIN_MOSI	2
 
 // Net-IO board from Pollin
-#define ENC28J60_PIN_SS		3
-#define ENC28J60_PIN_CS		4
+#define ENC28J60_PIN_SS		0
+#define ENC28J60_PIN_CS		0
 // other boards are wired this way
 //#define ENC28J60_PIN_SS		4
 //#define ENC28J60_PIN_CS		3

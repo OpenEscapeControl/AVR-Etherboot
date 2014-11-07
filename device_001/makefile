@@ -349,7 +349,7 @@ DEBUG_HOST = localhost
 
 
 # Define programs and commands.
-SHELL = sh
+SHELL = bash
 CC = avr-gcc
 OBJCOPY = avr-objcopy
 OBJDUMP = avr-objdump

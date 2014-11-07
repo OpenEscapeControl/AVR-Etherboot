@@ -1,0 +1,14 @@
+*.eep
+*.lst
+*.map
+*.lss
+*.o
+*~
+*.in
+*.elf
+*.hex
+device_*/size.txt
+*.swp
+device_*/.dep
+*.sym
+*.sizeelf
