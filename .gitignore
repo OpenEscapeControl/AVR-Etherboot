@@ -4,7 +4,6 @@
 *.lss
 *.o
 *~
-*.in
 *.elf
 *.hex
 device_*/size.txt
