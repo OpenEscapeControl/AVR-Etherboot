@@ -2,18 +2,18 @@
 #include "eemem.h"
 
 
-unsigned long EEMEM mlIpEEP = IP(192,168,2,131);
-unsigned long EEMEM mlNetmaskEEP = IP(255,255,0,0);
+unsigned long EEMEM mlIpEEP = IP(192,168,100,CONFIG_IP_ADDRESS_4);
+unsigned long EEMEM mlNetmaskEEP = IP(255,255,255,0);
 unsigned long EEMEM mlGatewayEEP = IP(0,0,0,0);
 unsigned long EEMEM mlDNSserverEEP = IP(0,0,0,0); //0x0302a8c0;
 
 #ifdef FIXED_TFTP_SRV
-unsigned long EEMEM mlTFTPipEEP = IP(192,168,2,2);
+unsigned long EEMEM mlTFTPipEEP = IP(192,168,100,1);
 #endif
 
 //************
 // remember to update TFTPReqStrSize in eemem.h if you ever change this
-TFTPREQ maTFTPReqStr EEMEM = {0x0100, "tst.hex\0octet"};
+TFTPREQ maTFTPReqStr EEMEM = {0x0100, CONFIG_REQ_FILENAME_3SYM"\0octet"};
 //************
 // remember to update TFTPErrStrSize in eemem.h if you ever change this
 TFTPERR maTFTPErrStr EEMEM = {0x0500, 0x0500, "Sorry, wasn't talking to you!"};

@@ -413,8 +413,9 @@ GENDEPFLAGS = -MMD -MP -MF .dep/$(@F).d
 
 # Combine all necessary flags and optional flags.
 # Add target processor to flags.
-ALL_CFLAGS = -DMAC_LAST_BYTE=$(MAC_LAST_BYTE) -mmcu=$(MCU) -I. $(CFLAGS) $(GENDEPFLAGS)
-ALL_CPPFLAGS = -DMAC_LAST_BYTE=$(MAC_LAST_BYTE) -mmcu=$(MCU) -I. -x c++ $(CPPFLAGS) $(GENDEPFLAGS)
+PASSTHROUGH_DEFINE_FLAGS = -DCONFIG_MAC_BYTE_6=$(MAC_BYTE_6) -DCONFIG_IP_ADDRESS_4=$(IP_ADDRESS_4) -DCONFIG_REQ_FILENAME_3SYM=$(REQ_FILENAME_3SYM)
+ALL_CFLAGS = $(PASSTHROUGH_DEFINE_FLAGS) -mmcu=$(MCU) -I. $(CFLAGS) $(GENDEPFLAGS)
+ALL_CPPFLAGS = $(PASSTHROUGH_DEFINE_FLAGS) -mmcu=$(MCU) -I. -x c++ $(CPPFLAGS) $(GENDEPFLAGS)
 ALL_ASFLAGS = -mmcu=$(MCU) -I. -x assembler-with-cpp $(ASFLAGS)
 
 # Default target.
@@ -473,7 +474,7 @@ program: $(TARGET).hex $(TARGET).eep
 
 #Program fuses
 fuse:
-	$(AVRDUDE) $(AVRDUDE_FLAGS) $(AVRDUDE_WRITE_FLASH) $(AVRDUDE_FUSES)
+	$(AVRDUDE) $(AVRDUDE_FLAGS) $(AVRDUDE_FUSES)
 
 # Generate avr-gdb config/init file which does the following:
 #     define the reset signal, load the target file, connect to target, and set 

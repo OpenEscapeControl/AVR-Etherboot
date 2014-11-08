@@ -5,16 +5,12 @@
 #include <avr/eeprom.h>
 #include <avr/boot.h>
 
-#ifndef MAC_LAST_BYTE
-    #error Please set -DMAC_LAST_BYTE=0x__
-#endif
-
 #define	MYMAC1 0xAA
 #define	MYMAC2 0x00
 #define	MYMAC3 0x00
 #define	MYMAC4 0x00
 #define	MYMAC5 0x01
-#define	MYMAC6 MAC_LAST_BYTE
+#define	MYMAC6 CONFIG_MAC_BYTE_6
 	
 
 // BOOTLOADER_FLAVOR selects the version to build (see docs)
